@@ -1,0 +1,16 @@
+define host{
+        host_name LOC_MASShost_1
+        address 127.0.0.1
+        use xiwizard_generic_host
+        }
+define service{
+                host_name LOC_MASShost_1
+            service_description LOC_MASSservice_ping
+}
+define service{
+}
+use xiwizard_website_ping_service
+host_name LOC_MASShost_1
+service_description LOC_MASSservice_dnsip
+use xiwizard_website_dnsip_service
+check_command  check_xi_service_dns!'-a 127.0.0.1'
